@@ -1,0 +1,44 @@
+/*
+Theme Name: Histoire Association
+Theme URI: https://histoireassociation.be
+Description: Thème WordPress pour association de reconstitution historique avec système ACF Flexible Content et Design System "Digital Archivist". Architecture modulaire avec Custom Post Types (Événements, Actualités), filtres AJAX, et composants builder réutilisables.
+Version: 1.0.0
+Author: Histoire Association Dev Team
+Author URI: https://histoireassociation.be
+Text Domain: histoire-asso
+
+== Description ==
+Thème développé pour l'association Histoire Association — reconstitution historique et archéologie expérimentale.
+
+Design System: "Digital Archivist"
+- Palette: Sombre (#131313), Or (#FFD45A), Parchemin (#FFF4E0)
+- Typographies: Noto Serif (display) + Work Sans (body)
+- Composants: Cards, Carousels, Filtres, Builder modulaire ACF
+
+Fonctionnalités:
+- Custom Post Types: Événements, Actualités
+- Taxonomies: Ères historiques, Catégories d'actualités
+- ACF Flexible Content: 9 layouts builder
+- AJAX: Filtres événements dynamiques
+- Formulaires: Contact & Adhésion avec validation
+- Swiper.js: Carousels 3D pour galeries d'artefacts
+
+== Changelog ==
+= 1.0.0 - 2024 =
+* Version initiale
+* Architecture complète
+* Design System Digital Archivist
+* 9 composants builder ACF
+* Formulaires intégrés
+
+== Credits ==
+* Noto Serif & Work Sans: Google Fonts
+* Swiper.js: https://swiperjs.com/
+* Icons: Material Design Icons (inline SVG)
+*/
+
+/**
+ * Les styles et scripts sont gérés dans fct_general.php
+ * Ce fichier contient uniquement les métadonnées du thème
+ * pour WordPress (en-tête de commentaire ci-dessus)
+ */

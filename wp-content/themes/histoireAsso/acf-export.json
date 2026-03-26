@@ -1,0 +1,552 @@
+[
+    {
+        "key": "group_event_fields",
+        "title": "Événement - Informations",
+        "fields": [
+            {
+                "key": "field_date_event",
+                "label": "Date de l'événement",
+                "name": "date_event",
+                "type": "date_picker",
+                "instructions": "Date à laquelle l'événement aura lieu",
+                "required": 1,
+                "display_format": "d\/m\/Y",
+                "return_format": "Y-m-d",
+                "first_day": 1
+            },
+            {
+                "key": "field_lieu",
+                "label": "Lieu",
+                "name": "lieu",
+                "type": "text",
+                "instructions": "Localisation de l'événement (ville, adresse)",
+                "required": 0,
+                "placeholder": "Ex: Tournai, Belgique"
+            },
+            {
+                "key": "field_galerie_event",
+                "label": "Galerie Photos",
+                "name": "galerie",
+                "type": "gallery",
+                "instructions": "Photos de l'événement (plusieurs images possibles pour carousel)",
+                "required": 0,
+                "return_format": "array",
+                "preview_size": "medium",
+                "insert": "append",
+                "library": "all",
+                "min": 0,
+                "max": 20
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "event"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "active": true
+    },
+    {
+        "key": "group_news_fields",
+        "title": "Actualité - Informations",
+        "fields": [
+            {
+                "key": "field_date_publication",
+                "label": "Date de publication",
+                "name": "date_publication",
+                "type": "date_picker",
+                "instructions": "Date de publication de l'actualité (laisser vide pour utiliser la date WordPress)",
+                "required": 0,
+                "display_format": "d\/m\/Y",
+                "return_format": "Y-m-d",
+                "first_day": 1
+            },
+            {
+                "key": "field_auteur_article",
+                "label": "Auteur de l'article",
+                "name": "auteur_article",
+                "type": "text",
+                "instructions": "Nom complet de l'auteur (laisser vide pour utiliser l'auteur WordPress)",
+                "required": 0,
+                "placeholder": "Ex: Jean Dupont"
+            },
+            {
+                "key": "field_galerie_news",
+                "label": "Galerie Photos",
+                "name": "galerie",
+                "type": "gallery",
+                "instructions": "Photos de l'actualité",
+                "required": 0,
+                "return_format": "array",
+                "preview_size": "medium",
+                "insert": "append",
+                "library": "all",
+                "min": 0,
+                "max": 20
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "news"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "active": true
+    },
+    {
+        "key": "group_builder",
+        "title": "Builder - Contenu Modulaire",
+        "fields": [
+            {
+                "key": "field_builder",
+                "label": "Builder",
+                "name": "builder",
+                "type": "flexible_content",
+                "instructions": "Ajouter des sections modulaires pour construire la page",
+                "required": 0,
+                "button_label": "+ Ajouter une section",
+                "layouts": {
+                    "layout_cta": {
+                        "key": "layout_cta",
+                        "name": "cta",
+                        "label": "CTA (Call to Action)",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_cta_title",
+                                "label": "Titre",
+                                "name": "title",
+                                "type": "text",
+                                "required": 0
+                            },
+                            {
+                                "key": "field_cta_subtitle",
+                                "label": "Sous-titre",
+                                "name": "subtitle",
+                                "type": "textarea",
+                                "required": 0,
+                                "rows": 3
+                            },
+                            {
+                                "key": "field_cta_lien",
+                                "label": "Lien du bouton",
+                                "name": "lien",
+                                "type": "link",
+                                "required": 0,
+                                "return_format": "array"
+                            },
+                            {
+                                "key": "field_cta_background_color",
+                                "label": "Couleur de fond",
+                                "name": "background_color",
+                                "type": "color_picker",
+                                "required": 0,
+                                "default_value": ""
+                            }
+                        ]
+                    },
+                    "layout_text_simple": {
+                        "key": "layout_text_simple",
+                        "name": "text_simple",
+                        "label": "Texte Simple",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_text_simple_title",
+                                "label": "Titre",
+                                "name": "title",
+                                "type": "text",
+                                "required": 0
+                            },
+                            {
+                                "key": "field_text_simple_contenu",
+                                "label": "Contenu",
+                                "name": "contenu",
+                                "type": "wysiwyg",
+                                "required": 0,
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1
+                            }
+                        ]
+                    },
+                    "layout_text_image": {
+                        "key": "layout_text_image",
+                        "name": "text_image",
+                        "label": "Texte + Image",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_text_image_title",
+                                "label": "Titre",
+                                "name": "title",
+                                "type": "text",
+                                "required": 0
+                            },
+                            {
+                                "key": "field_text_image_contenu",
+                                "label": "Contenu",
+                                "name": "contenu",
+                                "type": "wysiwyg",
+                                "required": 0,
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1
+                            },
+                            {
+                                "key": "field_text_image_image",
+                                "label": "Image",
+                                "name": "image",
+                                "type": "image",
+                                "required": 0,
+                                "return_format": "array",
+                                "preview_size": "medium",
+                                "library": "all"
+                            },
+                            {
+                                "key": "field_text_image_position",
+                                "label": "Position de l'image",
+                                "name": "image_position",
+                                "type": "select",
+                                "required": 0,
+                                "choices": {
+                                    "gauche": "Gauche",
+                                    "droite": "Droite"
+                                },
+                                "default_value": "droite",
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 1,
+                                "return_format": "value"
+                            },
+                            {
+                                "key": "field_text_image_bg_color",
+                                "label": "Couleur de fond",
+                                "name": "background_color",
+                                "type": "color_picker",
+                                "required": 0,
+                                "default_value": ""
+                            }
+                        ]
+                    },
+                    "layout_text_double": {
+                        "key": "layout_text_double",
+                        "name": "text_simple_double_colonne",
+                        "label": "Texte Deux Colonnes",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_text_double_title",
+                                "label": "Titre",
+                                "name": "title",
+                                "type": "text",
+                                "required": 0
+                            },
+                            {
+                                "key": "field_text_double_col1",
+                                "label": "Colonne Gauche",
+                                "name": "colonne_gauche",
+                                "type": "wysiwyg",
+                                "required": 0,
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1
+                            },
+                            {
+                                "key": "field_text_double_col2",
+                                "label": "Colonne Droite",
+                                "name": "colonne_droite",
+                                "type": "wysiwyg",
+                                "required": 0,
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1
+                            }
+                        ]
+                    },
+                    "layout_card": {
+                        "key": "layout_card",
+                        "name": "card",
+                        "label": "Card Générique",
+                        "display": "block",
+                        "sub_fields": []
+                    },
+                    "layout_card_event": {
+                        "key": "layout_card_event",
+                        "name": "card-event",
+                        "label": "Card Événement",
+                        "display": "block",
+                        "sub_fields": []
+                    },
+                    "layout_card_news": {
+                        "key": "layout_card_news",
+                        "name": "card-news",
+                        "label": "Card Actualité",
+                        "display": "block",
+                        "sub_fields": []
+                    },
+                    "layout_list_event": {
+                        "key": "layout_list_event",
+                        "name": "list_event",
+                        "label": "Liste Événements",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_list_event_nombre",
+                                "label": "Nombre d'événements",
+                                "name": "nombre",
+                                "type": "number",
+                                "required": 0,
+                                "default_value": 3,
+                                "min": 1,
+                                "max": 12,
+                                "step": 1
+                            },
+                            {
+                                "key": "field_list_event_filtre",
+                                "label": "Filtrer par ère historique",
+                                "name": "filtrer_par_ere",
+                                "type": "taxonomy",
+                                "required": 0,
+                                "taxonomy": "era",
+                                "field_type": "select",
+                                "allow_null": 1,
+                                "add_term": 0,
+                                "save_terms": 0,
+                                "load_terms": 0,
+                                "return_format": "id",
+                                "multiple": 0
+                            }
+                        ]
+                    },
+                    "layout_dernier_article": {
+                        "key": "layout_dernier_article",
+                        "name": "dernier_article",
+                        "label": "Dernières Actualités",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_dernier_article_nombre",
+                                "label": "Nombre d'actualités",
+                                "name": "nombre",
+                                "type": "number",
+                                "required": 0,
+                                "default_value": 3,
+                                "min": 1,
+                                "max": 12,
+                                "step": 1
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "active": true
+    },
+    {
+        "key": "group_options_page",
+        "title": "Histoire Asso - Options Globales",
+        "fields": [
+            {
+                "key": "field_tab_cta",
+                "label": "CTA Catalogue",
+                "name": "",
+                "type": "tab",
+                "placement": "top"
+            },
+            {
+                "key": "field_cta_catalogue_titre",
+                "label": "Titre CTA Catalogue",
+                "name": "cta_catalogue_titre",
+                "type": "text",
+                "instructions": "Titre du CTA global dans le footer",
+                "required": 0,
+                "default_value": "Explorez Notre Catalogue"
+            },
+            {
+                "key": "field_cta_catalogue_texte",
+                "label": "Texte CTA Catalogue",
+                "name": "cta_catalogue_texte",
+                "type": "textarea",
+                "instructions": "Description du CTA catalogue",
+                "required": 0,
+                "rows": 3
+            },
+            {
+                "key": "field_cta_catalogue_lien",
+                "label": "Lien CTA Catalogue",
+                "name": "cta_catalogue_lien",
+                "type": "link",
+                "instructions": "Lien du bouton CTA",
+                "required": 0,
+                "return_format": "array"
+            },
+            {
+                "key": "field_tab_footer",
+                "label": "Footer",
+                "name": "",
+                "type": "tab",
+                "placement": "top"
+            },
+            {
+                "key": "field_footer_apropos",
+                "label": "À propos",
+                "name": "footer_apropos",
+                "type": "textarea",
+                "instructions": "Texte de présentation dans le footer",
+                "required": 0,
+                "rows": 4
+            },
+            {
+                "key": "field_footer_liens_rapides",
+                "label": "Liens Rapides",
+                "name": "footer_liens_rapides",
+                "type": "repeater",
+                "instructions": "Liste des liens du footer",
+                "required": 0,
+                "button_label": "+ Ajouter un lien",
+                "layout": "table",
+                "sub_fields": [
+                    {
+                        "key": "field_footer_lien_text",
+                        "label": "Texte",
+                        "name": "lien_text",
+                        "type": "text",
+                        "required": 1
+                    },
+                    {
+                        "key": "field_footer_lien_url",
+                        "label": "URL",
+                        "name": "lien_url",
+                        "type": "url",
+                        "required": 1
+                    }
+                ]
+            },
+            {
+                "key": "field_footer_reseaux",
+                "label": "Réseaux Sociaux",
+                "name": "footer_reseaux",
+                "type": "repeater",
+                "instructions": "Liens vers les réseaux sociaux",
+                "required": 0,
+                "button_label": "+ Ajouter un réseau",
+                "layout": "table",
+                "sub_fields": [
+                    {
+                        "key": "field_footer_reseau_nom",
+                        "label": "Nom",
+                        "name": "reseau_nom",
+                        "type": "text",
+                        "required": 1,
+                        "placeholder": "Facebook"
+                    },
+                    {
+                        "key": "field_footer_reseau_url",
+                        "label": "URL",
+                        "name": "reseau_url",
+                        "type": "url",
+                        "required": 1
+                    },
+                    {
+                        "key": "field_footer_reseau_icon",
+                        "label": "Icône SVG",
+                        "name": "reseau_icon",
+                        "type": "textarea",
+                        "required": 0,
+                        "rows": 2,
+                        "placeholder": "<svg>...</svg>"
+                    }
+                ]
+            },
+            {
+                "key": "field_tab_contact",
+                "label": "Contact",
+                "name": "",
+                "type": "tab",
+                "placement": "top"
+            },
+            {
+                "key": "field_adresse_association",
+                "label": "Adresse de l'association",
+                "name": "adresse_association",
+                "type": "text",
+                "instructions": "Adresse complète de l'association",
+                "required": 0,
+                "placeholder": "Ex: Rue de l'Histoire, 1000 Tournai"
+            },
+            {
+                "key": "field_email_contact",
+                "label": "Email de contact",
+                "name": "email_contact",
+                "type": "email",
+                "instructions": "Email pour le formulaire de contact",
+                "required": 0,
+                "placeholder": "contact@histoire-asso.be"
+            },
+            {
+                "key": "field_telephone",
+                "label": "Téléphone",
+                "name": "telephone",
+                "type": "text",
+                "instructions": "Numéro de téléphone",
+                "required": 0,
+                "placeholder": "+32 X XX XX XX"
+            },
+            {
+                "key": "field_email_rejoindre",
+                "label": "Email rejoindre",
+                "name": "email_rejoindre",
+                "type": "email",
+                "instructions": "Email pour recevoir les candidatures d'adhésion",
+                "required": 0,
+                "placeholder": "adhesion@histoire-asso.be"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "histoire-asso-settings"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "active": true
+    }
+]

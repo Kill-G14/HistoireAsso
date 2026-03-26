@@ -1,0 +1,116 @@
+/**
+ * Carousel Styles — Artifact Carousel Component
+ * Styles pour le carousel Swiper.js avec effet 3D
+ */
+
+/* ========================================
+   CAROUSEL CONTAINER
+   ======================================== */
+
+.artifact-carousel {
+    position: relative;
+    width: 100%;
+    overflow: visible; /* Permet aux images de dépasser */
+    margin: var(--spacing-12) 0;
+}
+
+.swiper {
+    overflow: visible; /* Override pour effet 3D */
+}
+
+.swiper-slide {
+    opacity: 0.6;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.swiper-slide-active {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* ========================================
+   IMAGE STYLES
+   ======================================== */
+
+.carousel-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-high);
+}
+
+/* ========================================
+   NAVIGATION BUTTONS
+   ======================================== */
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--primary-container);
+    background-color: rgba(19, 19, 19, 0.8);
+    backdrop-filter: blur(var(--glass-blur));
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 20px;
+}
+
+.artifact-carousel:hover .swiper-button-next,
+.artifact-carousel:hover .swiper-button-prev {
+    opacity: 1;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: var(--primary-container);
+    color: var(--on-primary-container);
+}
+
+/* ========================================
+   PAGINATION
+   ======================================== */
+
+.swiper-pagination {
+    bottom: -40px !important;
+}
+
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary);
+    opacity: 0.4;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--primary-container);
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+    .carousel-image {
+        height: 250px;
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 16px;
+    }
+}

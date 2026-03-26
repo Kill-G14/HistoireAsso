@@ -1,0 +1,187 @@
+/**
+ * Card Styles — Universal Card System
+ * Styles pour tous les types de cards (event, news, etc.)
+ */
+
+/* ========================================
+   BASE CARD STRUCTURE
+   ======================================== */
+
+.card {
+    background-color: var(--surface-container-low);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow-low);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-high);
+}
+
+.card-image-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Gradient overlay (30% bas de l'image) */
+.card-image-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    background: linear-gradient(to top, var(--surface-container-low), transparent);
+    pointer-events: none;
+}
+
+.card-content {
+    padding: var(--spacing-6);
+}
+
+.card-title {
+    font-family: var(--font-serif);
+    font-size: var(--headline-md);
+    color: var(--primary);
+    margin-bottom: var(--spacing-4);
+    line-height: var(--lh-tight);
+}
+
+.card-meta {
+    display: flex;
+    gap: var(--spacing-5);
+    align-items: center;
+    margin-bottom: var(--spacing-4);
+    font-size: var(--body-sm);
+    color: var(--on-surface-variant);
+}
+
+.card-excerpt {
+    font-size: var(--body-md);
+    color: var(--on-surface);
+    line-height: var(--lh-relaxed);
+    margin-bottom: var(--spacing-5);
+}
+
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    color: var(--primary-container);
+    font-weight: 600;
+    font-size: var(--body-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: gap 0.3s ease;
+}
+
+.card-link:hover {
+    gap: var(--spacing-4);
+}
+
+/* ========================================
+   CARD GRID LAYOUT
+   ======================================== */
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-8);
+    margin: var(--spacing-12) 0;
+}
+
+@media (max-width: 768px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-6);
+    }
+}
+
+/* ========================================
+   CARD VARIANTS
+   ======================================== */
+
+/* Card Event — avec date proéminente */
+.card-event .card-date {
+    font-family: var(--font-serif);
+    font-size: var(--display-sm);
+    color: var(--primary-container);
+    font-weight: 700;
+    margin-bottom: var(--spacing-3);
+}
+
+.card-event .card-location {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    color: var(--on-surface-variant);
+    font-size: var(--body-sm);
+    margin-bottom: var(--spacing-4);
+}
+
+/* Card News — avec auteur */
+.card-news .card-author {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    margin-top: var(--spacing-5);
+    padding-top: var(--spacing-5);
+    border-top: 1px solid var(--outline-variant);
+}
+
+.card-news .card-author-name {
+    font-size: var(--body-sm);
+    color: var(--on-surface-variant);
+}
+
+/* ========================================
+   CARD WITH CAROUSEL (Artifact Carousel)
+   ======================================== */
+
+.card-carousel {
+    position: relative;
+}
+
+.card-carousel .swiper-button-next,
+.card-carousel .swiper-button-prev {
+    color: var(--primary-container);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-carousel:hover .swiper-button-next,
+.card-carousel:hover .swiper-button-prev {
+    opacity: 1;
+}
+
+.card-carousel .swiper-pagination-bullet {
+    background-color: var(--primary);
+    opacity: 0.5;
+}
+
+.card-carousel .swiper-pagination-bullet-active {
+    background-color: var(--primary-container);
+    opacity: 1;
+}
+
+/* ========================================
+   NO RESULTS MESSAGE
+   ======================================== */
+
+.no-results {
+    text-align: center;
+    padding: var(--spacing-16) var(--spacing-8);
+    color: var(--on-surface-variant);
+    font-size: var(--body-lg);
+    font-style: italic;
+}

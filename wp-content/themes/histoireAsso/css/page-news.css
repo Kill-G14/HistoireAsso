@@ -1,0 +1,39 @@
+/**
+ * Page News — Styles spécifiques page actualités
+ */
+
+.archive-news {
+    padding: var(--spacing-16) 0;
+}
+
+.archive-news .page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-12);
+}
+
+.archive-news .page-title {
+    font-family: var(--font-serif);
+    font-size: var(--display-md);
+    color: var(--primary);
+    margin-bottom: var(--spacing-4);
+}
+
+.archive-news .page-description {
+    font-size: var(--body-lg);
+    color: var(--on-surface-variant);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Grid spécifique news */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--spacing-8);
+}
+
+@media (max-width: 768px) {
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+}

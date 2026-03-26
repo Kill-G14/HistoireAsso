@@ -1,0 +1,373 @@
+/**
+ * General CSS — Design System "Digital Archivist"
+ * Tokens, Reset, Classes utilitaires
+ */
+
+/* ========================================
+   CSS CUSTOM PROPERTIES (Design Tokens)
+   ======================================== */
+
+:root {
+    /* Couleurs — Palette "Digital Archivist" */
+    --background: #131313;              /* Obsidian — fond principal */
+    --primary: #FFF4E0;                 /* Parchment — texte principal */
+    --primary-container: #FFD45A;       /* Refined Gold — CTA, accents */
+    --on-primary-container: #131313;    /* Texte sur gold */
+    --secondary: #FFB4A8;               /* Rose pâle */
+    --secondary-container: #920703;     /* Deep Madder — alertes */
+    --on-secondary-container: #FFF4E0;  /* Texte sur red */
+    
+    /* Surfaces — Hiérarchie de profondeur */
+    --surface: #1C1C1C;
+    --surface-container-lowest: #0E0E0E;
+    --surface-container-low: #1A1A1A;
+    --surface-container: #1E1E1E;
+    --surface-container-high: #252525;
+    --surface-container-highest: #2E2E2E;
+    --surface-bright: #393939;
+    --surface-variant: rgba(255, 244, 224, 0.08);
+    
+    /* Couleurs de texte */
+    --on-surface: #FFF4E0;
+    --on-surface-variant: rgba(255, 212, 90, 0.6);  /* Gold muted */
+    
+    /* Outline & Borders */
+    --outline-variant: rgba(255, 212, 90, 0.15);
+    
+    /* Typographie */
+    --font-serif: 'Noto Serif', Georgia, serif;
+    --font-sans: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    
+    /* Type Scale */
+    --display-lg: 3.5rem;      /* 56px */
+    --display-md: 2.8rem;      /* 45px */
+    --display-sm: 2.25rem;     /* 36px */
+    --headline-lg: 2rem;       /* 32px */
+    --headline-md: 1.75rem;    /* 28px */
+    --headline-sm: 1.5rem;     /* 24px */
+    --title-lg: 1.375rem;      /* 22px */
+    --title-md: 1.125rem;      /* 18px */
+    --title-sm: 0.875rem;      /* 14px */
+    --body-lg: 1.125rem;       /* 18px */
+    --body-md: 1rem;           /* 16px */
+    --body-sm: 0.875rem;       /* 14px */
+    --label-lg: 0.875rem;      /* 14px */
+    --label-md: 0.75rem;       /* 12px */
+    
+    /* Line Heights */
+    --lh-tight: 1.2;
+    --lh-normal: 1.5;
+    --lh-relaxed: 1.6;
+    --lh-loose: 1.8;
+    
+    /* Spacing Scale (base 0.5rem = 8px) */
+    --spacing-1: 0.125rem;     /* 2px */
+    --spacing-2: 0.25rem;      /* 4px */
+    --spacing-3: 0.5rem;       /* 8px */
+    --spacing-4: 0.75rem;      /* 12px */
+    --spacing-5: 1rem;         /* 16px */
+    --spacing-6: 1.25rem;      /* 20px */
+    --spacing-7: 1.5rem;       /* 24px */
+    --spacing-8: 2rem;         /* 32px */
+    --spacing-10: 2.5rem;      /* 40px */
+    --spacing-12: 3rem;        /* 48px */
+    --spacing-16: 4rem;        /* 64px */
+    --spacing-20: 5rem;        /* 80px */
+    
+    /* Border Radius */
+    --radius-sm: 0.125rem;     /* 2px — sharp */
+    --radius-md: 0.25rem;      /* 4px */
+    --radius-lg: 0.5rem;       /* 8px — image containers */
+    --radius-xl: 1rem;         /* 16px */
+    
+    /* Shadows — Ambient, diffusées */
+    --shadow-low: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.3);
+    --shadow-high: 0 20px 40px rgba(0, 0, 0, 0.4);
+    
+    /* Glassmorphism */
+    --glass-blur: 16px;
+    --glass-opacity: 0.6;
+}
+
+/* ========================================
+   RESET & BASE STYLES
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--on-surface);
+    font-family: var(--font-sans);
+    font-size: var(--body-md);
+    line-height: var(--lh-relaxed);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--primary-container);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+/* ========================================
+   TYPOGRAPHY CLASSES
+   ======================================== */
+
+.display-lg {
+    font-family: var(--font-serif);
+    font-size: var(--display-lg);
+    line-height: var(--lh-tight);
+    font-weight: 700;
+}
+
+.display-md {
+    font-family: var(--font-serif);
+    font-size: var(--display-md);
+    line-height: var(--lh-tight);
+    font-weight: 700;
+}
+
+.headline-lg {
+    font-family: var(--font-serif);
+    font-size: var(--headline-lg);
+    line-height: var(--lh-normal);
+    font-weight: 600;
+}
+
+.headline-md {
+    font-family: var(--font-serif);
+    font-size: var(--headline-md);
+    line-height: var(--lh-normal);
+    font-weight: 600;
+}
+
+.body-lg {
+    font-family: var(--font-sans);
+    font-size: var(--body-lg);
+    line-height: var(--lh-relaxed);
+}
+
+.body-md {
+    font-family: var(--font-sans);
+    font-size: var(--body-md);
+    line-height: var(--lh-relaxed);
+}
+
+.label-md {
+    font-family: var(--font-sans);
+    font-size: var(--label-md);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+/* ========================================
+   LAYOUT UTILITIES
+   ======================================== */
+
+.container1200px {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-8);
+}
+
+.container1400px {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-8);
+}
+
+.grid-2col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-8);
+}
+
+.grid-3col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-8);
+}
+
+.grid-4col {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-6);
+}
+
+/* Responsive grids */
+@media (max-width: 1024px) {
+    .grid-4col {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-3col {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-4col,
+    .grid-3col,
+    .grid-2col {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================================
+   SPACING UTILITIES
+   ======================================== */
+
+.section-spacing {
+    padding: var(--spacing-16) 0;
+}
+
+.section-spacing-large {
+    padding: var(--spacing-20) 0;
+}
+
+.mb-8 { margin-bottom: var(--spacing-8); }
+.mb-12 { margin-bottom: var(--spacing-12); }
+.mt-8 { margin-top: var(--spacing-8); }
+.mt-12 { margin-top: var(--spacing-12); }
+
+/* ========================================
+   BUTTON BASE STYLES (voir button-a.php et button-b.php)
+   ======================================== */
+
+.btn {
+    display: inline-block;
+    padding: var(--spacing-5) var(--spacing-8);
+    font-family: var(--font-sans);
+    font-size: var(--body-md);
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: var(--primary-container);
+    color: var(--on-primary-container);
+    border-radius: var(--radius-sm);
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary);
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius-sm);
+}
+
+.btn-secondary:hover {
+    border-color: var(--primary-container);
+    background-color: rgba(255, 212, 90, 0.1);
+}
+
+/* ========================================
+   FORM STYLES (Input fields - Ghost Border)
+   ======================================== */
+
+.form-field {
+    margin-bottom: var(--spacing-6);
+}
+
+.form-label {
+    display: block;
+    margin-bottom: var(--spacing-3);
+    font-size: var(--label-md);
+    color: var(--on-surface-variant);
+    font-weight: 500;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: var(--spacing-5);
+    background-color: var(--surface-container);
+    color: var(--on-surface);
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-sans);
+    font-size: var(--body-md);
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--primary-container);
+    box-shadow: 0 0 0 2px rgba(255, 212, 90, 0.2);
+}
+
+.form-textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* ========================================
+   SURFACE CONTAINERS
+   ======================================== */
+
+.surface-low {
+    background-color: var(--surface-container-low);
+}
+
+.surface-high {
+    background-color: var(--surface-container-high);
+}
+
+.surface-highest {
+    background-color: var(--surface-container-highest);
+    box-shadow: var(--shadow-high);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+    :root {
+        --display-lg: 2.5rem;
+        --display-md: 2rem;
+        --headline-lg: 1.75rem;
+    }
+    
+    .container1200px,
+    .container1400px {
+        padding: 0 var(--spacing-5);
+    }
+    
+    .section-spacing {
+        padding: var(--spacing-12) 0;
+    }
+}
