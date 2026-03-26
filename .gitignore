@@ -1,0 +1,36 @@
+# WordPress
+wp-config.php
+.htaccess
+
+# Uploads
+wp-content/uploads/
+wp-content/ai1wm-backups/
+
+# Plugins (commentez cette ligne si vous voulez versionner vos plugins)
+# wp-content/plugins/
+
+# Themes (commentez cette ligne si vous voulez versionner vos thèmes personnalisés)
+# wp-content/themes/
+
+# Upgrades
+wp-content/upgrade/
+
+# Cache
+wp-content/cache/
+wp-content/advanced-cache.php
+wp-content/object-cache.php
+
+# Languages (fichiers générés)
+wp-content/languages/*.mo
+
+# Debug logs
+*.log
+debug.log
+error_log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local development
+local-xdebuginfo.php
