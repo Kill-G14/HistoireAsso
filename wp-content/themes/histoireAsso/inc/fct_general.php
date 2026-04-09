@@ -40,6 +40,9 @@ function ha_enqueue_scripts() {
     // CSS Hero section
     wp_enqueue_style('ha-hero', get_template_directory_uri() . '/css/hero.css', [], '1.0.0');
     
+    // CSS Carousel Intervenants
+    wp_enqueue_style('ha-carousel-intervenants', get_template_directory_uri() . '/css/carousel-intervenants.css', [], '1.0.0');
+    
     // CSS Cards
     wp_enqueue_style('ha-card', get_template_directory_uri() . '/css/card.css', [], '1.0.0');
     
@@ -51,4 +54,7 @@ function ha_enqueue_scripts() {
     
     // JavaScript Navbar (Vanilla JS)
     wp_enqueue_script('ha-navbar', get_template_directory_uri() . '/JS/navbar.js', [], '1.0.0', true);
+    
+    // JavaScript Carousel Intervenants
+    wp_enqueue_script('ha-carousel-intervenants', get_template_directory_uri() . '/JS/carousel-intervenants.js', [], '1.0.0', true);
 }

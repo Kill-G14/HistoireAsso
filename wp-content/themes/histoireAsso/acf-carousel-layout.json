@@ -1,0 +1,197 @@
+[
+    {
+        "key": "group_carousel_layout_temp",
+        "title": "Carousel Layout - À copier dans Builder",
+        "fields": [
+            {
+                "key": "field_carousel_builder_temp",
+                "label": "Builder Temporaire",
+                "name": "builder_temp",
+                "aria-label": "",
+                "type": "flexible_content",
+                "instructions": "⚠️ CECI EST UN GROUPE TEMPORAIRE - Copiez le layout 'carousel' dans votre Builder principal puis supprimez ce groupe",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layouts": {
+                    "layout_carousel": {
+                        "key": "layout_carousel",
+                        "name": "carousel",
+                        "label": "Carousel Intervenants",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_carousel_titre",
+                                "label": "Titre de la section",
+                                "name": "titre_section",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "Ex: \"Nos Intervenants\"",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "Nos Intervenants",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_carousel_description",
+                                "label": "Description",
+                                "name": "description",
+                                "aria-label": "",
+                                "type": "textarea",
+                                "instructions": "Texte d'introduction sous le titre",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "Revivez les grandes époques qui ont façonné notre territoire à travers le regard de passionnés.",
+                                "maxlength": "",
+                                "rows": 3,
+                                "placeholder": "",
+                                "new_lines": "br"
+                            },
+                            {
+                                "key": "field_carousel_slides",
+                                "label": "Slides du carousel",
+                                "name": "slides",
+                                "aria-label": "",
+                                "type": "repeater",
+                                "instructions": "Ajoutez les cards du carousel (époques historiques)",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "layout": "block",
+                                "pagination": 0,
+                                "min": 1,
+                                "max": 0,
+                                "collapsed": "field_carousel_slide_titre",
+                                "button_label": "Ajouter une slide",
+                                "rows_per_page": 20,
+                                "sub_fields": [
+                                    {
+                                        "key": "field_carousel_slide_image",
+                                        "label": "Image",
+                                        "name": "image",
+                                        "aria-label": "",
+                                        "type": "image",
+                                        "instructions": "Image de la période historique (ratio 3:4 recommandé)",
+                                        "required": 1,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "return_format": "array",
+                                        "library": "all",
+                                        "min_width": "",
+                                        "min_height": "",
+                                        "min_size": "",
+                                        "max_width": "",
+                                        "max_height": "",
+                                        "max_size": "",
+                                        "mime_types": "jpg,jpeg,png,webp",
+                                        "preview_size": "medium",
+                                        "parent_repeater": "field_carousel_slides"
+                                    },
+                                    {
+                                        "key": "field_carousel_slide_categorie",
+                                        "label": "Catégorie",
+                                        "name": "categorie",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "Petit texte au-dessus du titre (ex: \"Origines\", \"Civilisation\", \"Médiéval\")",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "50",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "Origines",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_carousel_slides"
+                                    },
+                                    {
+                                        "key": "field_carousel_slide_titre",
+                                        "label": "Titre de l'époque",
+                                        "name": "titre",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "Nom de la période (ex: \"La préhistoire\", \"Les Gaulois\")",
+                                        "required": 1,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "50",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "La préhistoire",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_carousel_slides"
+                                    },
+                                    {
+                                        "key": "field_carousel_slide_lien",
+                                        "label": "Lien (optionnel)",
+                                        "name": "lien",
+                                        "aria-label": "",
+                                        "type": "link",
+                                        "instructions": "Lien vers une page dédiée à cette époque",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "return_format": "array",
+                                        "parent_repeater": "field_carousel_slides"
+                                    }
+                                ]
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    }
+                },
+                "button_label": "Add Row",
+                "min": "",
+                "max": ""
+            }
+        ],
+        "location": [],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": false,
+        "description": "⚠️ GROUPE TEMPORAIRE - Importez ce groupe, copiez le layout 'carousel' dans votre Builder principal (Ctrl+C / Ctrl+V), puis supprimez ce groupe de champs.",
+        "show_in_rest": 0
+    }
+]
