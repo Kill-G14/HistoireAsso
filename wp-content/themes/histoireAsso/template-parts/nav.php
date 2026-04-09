@@ -1,184 +1,51 @@
 <?php
 /**
- * Template Part: Navigation (TopAppBar)
- * Navigation principale avec effect glassmorphisme au scroll
+ * Template Part: Navigation avec effet glassmorphisme
+ * Design System: Digital Archivist
  */
 ?>
 
-<nav class="navbar">
-    <div class="navbar-container container1400px">
-        <!-- Logo -->
-        <div class="navbar-brand">
-            <a href="<?= esc_url(home_url('/')); ?>" class="navbar-logo">
-                <span class="navbar-logo-text">Histoire Association</span>
-            </a>
+<nav class="main-nav" id="mainNav">
+    <div class="nav-container">
+        <!-- Logo avec SVG -->
+        <a href="<?= esc_url(home_url('/')); ?>" class="nav-logo" aria-label="Retour à l'accueil">
+            <svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" height="48" width="48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo Histoire Association" class="nav-logo-svg">
+                <path fill="#0447e7" d="M31.802 15.988c0 8.726-7.08 15.8-15.813 15.8S.176 24.713.176 15.987 7.256.188 15.989.188c8.734 0 15.813 7.074 15.813 15.8z"/>
+                <path d="M12.334.511c3.168-.701 4.88-.552 8.042.18 1.273.296 2.613.958 4.13 1.853v26.849c-1.304.768-3.32 1.728-4.621 2.058-1.698.431-4.6.463-7.305.112-1.333-.173-3.66-1.287-5.1-2.075V2.544C8.52 1.81 11.229.756 12.334.511z" fill="#e60003"/>
+                <path fill="none" stroke="#000" stroke-width="1.142" d="M186.169 103.5c0 52.88-41.49 95.747-92.669 95.747C42.32 199.247.831 156.38.831 103.5S42.321 7.753 93.5 7.753c51.18 0 92.669 42.867 92.669 95.747z" transform="matrix(.17155 0 0 .16607 -.047 -1.194)"/>
+            </svg>
+            <span class="nav-site-name">Histoire Association</span>
+        </a>
+
+        <!-- Menu Principal -->
+        <div class="nav-menu-wrapper">
+            <?php
+            // Récupérer le menu WordPress ou afficher menu par défaut
+            if (has_nav_menu('main-menu')) :
+                wp_nav_menu([
+                    'theme_location' => 'main-menu',
+                    'container' => false,
+                    'menu_class' => 'nav-menu',
+                    'fallback_cb' => false,
+                ]);
+            else :
+                // Menu par défaut si aucun menu configuré
+                ?>
+                <ul class="nav-menu">
+                    <li class="menu-item"><a href="<?= esc_url(home_url('/')); ?>">Accueil</a></li>
+                    <li class="menu-item"><a href="<?= esc_url(home_url('/actualites')); ?>">Toutes les infos</a></li>
+                    <li class="menu-item"><a href="<?= esc_url(home_url('/evenements')); ?>">Agenda</a></li>
+                    <li class="menu-item"><a href="<?= esc_url(home_url('/recrutement')); ?>">Recrutement</a></li>
+                    <li class="menu-item"><a href="<?= esc_url(home_url('/contact')); ?>">Contact</a></li>
+                </ul>
+            <?php endif; ?>
         </div>
 
-        <!-- Menu Toggle (Mobile) -->
-        <button class="menu-toggle" aria-label="Toggle menu">
+        <!-- Burger Menu (Mobile) -->
+        <button class="nav-burger" aria-label="Menu de navigation" aria-expanded="false" id="navBurger">
             <span></span>
             <span></span>
             <span></span>
         </button>
-
-        <!-- Menu Principal -->
-        <?php
-        wp_nav_menu([
-            'theme_location' => 'main-menu',
-            'container' => 'div',
-            'container_class' => 'navbar-menu',
-            'menu_class' => 'navbar-nav',
-            'fallback_cb' => false,
-        ]);
-        ?>
     </div>
 </nav>
-
-<style>
-/* Navigation Styles */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background-color: transparent;
-    transition: all 0.4s ease;
-    padding: var(--spacing-6) 0;
-}
-
-/* Glassmorphisme au scroll */
-.navbar.scrolled {
-    background-color: rgba(19, 19, 19, 0.9);
-    backdrop-filter: blur(16px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-}
-
-.navbar.hidden {
-    transform: translateY(-100%);
-}
-
-.navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navbar-logo-text {
-    font-family: var(--font-serif);
-    font-size: var(--headline-md);
-    color: var(--primary);
-    font-weight: 700;
-}
-
-.navbar-menu {
-    display: flex;
-    align-items: center;
-}
-
-.navbar-nav {
-    display: flex;
-    list-style: none;
-    gap: var(--spacing-8);
-    margin: 0;
-    padding: 0;
-}
-
-.navbar-nav li a {
-    color: var(--primary);
-    font-family: var(--font-sans);
-    font-size: var(--body-md);
-    font-weight: 500;
-    transition: color 0.3s ease;
-    position: relative;
-}
-
-.navbar-nav li a:hover,
-.navbar-nav li.current-menu-item a {
-    color: var(--primary-container);
-}
-
-/* Underline effect */
-.navbar-nav li a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-container);
-    transition: width 0.3s ease;
-}
-
-.navbar-nav li a:hover::after,
-.navbar-nav li.current-menu-item a::after {
-    width: 100%;
-}
-
-/* Menu Toggle (Mobile) */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 6px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: var(--spacing-3);
-}
-
-.menu-toggle span {
-    display: block;
-    width: 28px;
-    height: 3px;
-    background-color: var(--primary-container);
-    transition: all 0.3s ease;
-    border-radius: 2px;
-}
-
-.menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
-}
-
-.menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-}
-
-/* ========================================
-   RESPONSIVE MOBILE
-   ======================================== */
-
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: flex;
-    }
-
-    .navbar-menu {
-        position: fixed;
-        top: 80px;
-        left: 0;
-        right: 0;
-        background-color: rgba(19, 19, 19, 0.98);
-        backdrop-filter: blur(20px);
-        padding: var(--spacing-8);
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-    }
-
-    .navbar-menu.active {
-        transform: translateX(0);
-    }
-
-    .navbar-nav {
-        flex-direction: column;
-        gap: var(--spacing-5);
-    }
-
-    .navbar-nav li a {
-        font-size: var(--body-lg);
-    }
-}
-</style>

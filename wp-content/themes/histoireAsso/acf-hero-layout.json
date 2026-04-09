@@ -1,0 +1,193 @@
+[
+    {
+        "key": "group_hero_layout",
+        "title": "Hero Layout - Digital Archivist",
+        "fields": [
+            {
+                "key": "field_hero_background",
+                "label": "Image de fond",
+                "name": "background_image",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "Image plein écran pour le hero (minimum 1920x1080px recommandé)",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "jpg,jpeg,png,webp",
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_hero_surtitre",
+                "label": "Surtitre",
+                "name": "surtitre",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Texte court au-dessus du titre principal (ex: \"Association d'Histoire de Tournai\")",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_hero_titre",
+                "label": "Titre principal",
+                "name": "titre",
+                "aria-label": "",
+                "type": "textarea",
+                "instructions": "Grand titre principal du hero (sera affiché en très grande taille)",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "rows": 3,
+                "placeholder": "",
+                "new_lines": "br"
+            },
+            {
+                "key": "field_hero_bouton_primaire",
+                "label": "Bouton Primaire (Gold)",
+                "name": "bouton_primaire",
+                "aria-label": "",
+                "type": "group",
+                "instructions": "Premier bouton CTA (fond doré)",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_hero_btn_primary_text",
+                        "label": "Texte du bouton",
+                        "name": "texte",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "Découvrir notre mission",
+                        "prepend": "",
+                        "append": ""
+                    },
+                    {
+                        "key": "field_hero_btn_primary_url",
+                        "label": "URL du bouton",
+                        "name": "lien",
+                        "aria-label": "",
+                        "type": "url",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "https://"
+                    }
+                ]
+            },
+            {
+                "key": "field_hero_bouton_secondaire",
+                "label": "Bouton Secondaire (Ghost)",
+                "name": "bouton_secondaire",
+                "aria-label": "",
+                "type": "group",
+                "instructions": "Deuxième bouton CTA (style outline)",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_hero_btn_secondary_text",
+                        "label": "Texte du bouton",
+                        "name": "texte",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "L'agenda des événements",
+                        "prepend": "",
+                        "append": ""
+                    },
+                    {
+                        "key": "field_hero_btn_secondary_url",
+                        "label": "URL du bouton",
+                        "name": "lien",
+                        "aria-label": "",
+                        "type": "url",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "https://"
+                    }
+                ]
+            }
+        ],
+        "location": [],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Layout Hero pour le flexible content Builder - Design Digital Archivist",
+        "show_in_rest": 0
+    }
+]

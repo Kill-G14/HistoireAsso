@@ -34,15 +34,21 @@ function ha_enqueue_scripts() {
     // CSS General (tokens design system)
     wp_enqueue_style('ha-general', get_template_directory_uri() . '/css/general.css', [], '1.0.0');
     
+    // CSS Navigation avec glassmorphisme
+    wp_enqueue_style('ha-navigation', get_template_directory_uri() . '/css/navigation.css', [], '1.0.0');
+    
+    // CSS Hero section
+    wp_enqueue_style('ha-hero', get_template_directory_uri() . '/css/hero.css', [], '1.0.0');
+    
     // CSS Cards
     wp_enqueue_style('ha-card', get_template_directory_uri() . '/css/card.css', [], '1.0.0');
     
     // Google Fonts (Noto Serif + Work Sans)
     wp_enqueue_style('ha-fonts', 'https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap', [], null);
     
-    // JavaScript Navbar
-    wp_enqueue_script('ha-navbar', get_template_directory_uri() . '/JS/navbar.js', ['jquery'], '1.0.0', true);
+    // Material Symbols (pour icônes)
+    wp_enqueue_style('material-symbols', 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap', [], null);
     
-    // jQuery (déjà inclus dans WordPress)
-    wp_enqueue_script('jquery');
+    // JavaScript Navbar (Vanilla JS)
+    wp_enqueue_script('ha-navbar', get_template_directory_uri() . '/JS/navbar.js', [], '1.0.0', true);
 }

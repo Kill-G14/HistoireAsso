@@ -1,43 +1,126 @@
 /**
- * Navbar.js — Navigation avec glassmorphisme et effet scroll
+ * Navigation avec effet Glassmorphisme
+ * Design System: Digital Archivist
  */
 
-jQuery(document).ready(function ($) {
-  const $navbar = $(".navbar");
-  let lastScroll = 0;
+(function () {
+  "use strict";
 
-  // Effet scroll : glassmorphisme + hide/show
-  $(window).on("scroll", function () {
-    const currentScroll = $(this).scrollTop();
+  const nav = document.getElementById("mainNav");
+  const burger = document.getElementById("navBurger");
+  const menuWrapper = document.querySelector(".nav-menu-wrapper");
 
-    // Ajouter glassmorphisme après 100px de scroll
-    if (currentScroll > 100) {
-      $navbar.addClass("scrolled");
+  let lastScrollTop = 0;
+  const scrollThreshold = 100; // Pixels avant d'activer le glassmorphisme
+
+  /**
+   * Gestion du scroll - Active glassmorphisme
+   */
+  function handleScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Ajouter classe "scrolled" pour glassmorphisme
+    if (scrollTop > scrollThreshold) {
+      nav.classList.add("scrolled");
     } else {
-      $navbar.removeClass("scrolled");
+      nav.classList.remove("scrolled");
     }
 
-    // Hide navbar on scroll down, show on scroll up
-    if (currentScroll > lastScroll && currentScroll > 200) {
-      $navbar.addClass("hidden");
+    // Cacher/Afficher navigation en fonction du sens du scroll
+    if (scrollTop > lastScrollTop && scrollTop > 300) {
+      // Scroll vers le bas - cacher nav
+      nav.classList.add("hidden");
     } else {
-      $navbar.removeClass("hidden");
+      // Scroll vers le haut - afficher nav
+      nav.classList.remove("hidden");
     }
 
-    lastScroll = currentScroll;
-  });
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  }
 
-  // Menu mobile toggle
-  $(".menu-toggle").on("click", function () {
-    $(".navbar-menu").toggleClass("active");
-    $(this).toggleClass("active");
-  });
+  /**
+   * Toggle menu mobile
+   */
+  function toggleMobileMenu() {
+    const isExpanded = burger.getAttribute("aria-expanded") === "true";
 
-  // Fermer menu mobile au clic sur lien
-  $(".navbar-menu a").on("click", function () {
-    if ($(window).width() <= 768) {
-      $(".navbar-menu").removeClass("active");
-      $(".menu-toggle").removeClass("active");
+    burger.setAttribute("aria-expanded", !isExpanded);
+    burger.classList.toggle("active");
+    menuWrapper.classList.toggle("active");
+    document.body.classList.toggle("menu-open");
+  }
+
+  /**
+   * Fermer le menu mobile au clic sur un lien
+   */
+  function closeMobileMenuOnLinkClick() {
+    const menuLinks = menuWrapper.querySelectorAll("a");
+
+    menuLinks.forEach((link) => {
+      link.addEventListener("click", function () {
+        if (window.innerWidth <= 768) {
+          burger.classList.remove("active");
+          menuWrapper.classList.remove("active");
+          burger.setAttribute("aria-expanded", "false");
+          document.body.classList.remove("menu-open");
+        }
+      });
+    });
+  }
+
+  /**
+   * Fermer le menu mobile au clic en dehors
+   */
+  function handleOutsideClick(event) {
+    if (
+      window.innerWidth <= 768 &&
+      menuWrapper.classList.contains("active") &&
+      !menuWrapper.contains(event.target) &&
+      !burger.contains(event.target)
+    ) {
+      burger.classList.remove("active");
+      menuWrapper.classList.remove("active");
+      burger.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("menu-open");
     }
-  });
-});
+  }
+
+  /**
+   * Gestion du resize - Fermer menu mobile si passage en desktop
+   */
+  function handleResize() {
+    if (window.innerWidth > 768 && menuWrapper.classList.contains("active")) {
+      burger.classList.remove("active");
+      menuWrapper.classList.remove("active");
+      burger.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("menu-open");
+    }
+  }
+
+  /**
+   * Initialisation
+   */
+  function init() {
+    // Event Listeners
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleResize);
+    document.addEventListener("click", handleOutsideClick);
+
+    if (burger) {
+      burger.addEventListener("click", toggleMobileMenu);
+    }
+
+    // Fermer menu au clic sur liens
+    closeMobileMenuOnLinkClick();
+
+    // Appeler handleScroll au chargement pour état initial
+    handleScroll();
+  }
+
+  // Lancer l'initialisation quand le DOM est prêt
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();

@@ -108,8 +108,6 @@ $telephone = get_field('telephone', 'option');
     </div>
 </main>
 
-<?php endwhile; ?>
-
 <?php get_footer(); ?>
 
 <script>
