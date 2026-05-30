@@ -12,7 +12,7 @@ $query_args = [
     'post_type' => 'event',
     'posts_per_page' => $nombre,
     'orderby' => 'meta_value',
-    'meta_key' => 'date_event',
+    'meta_key' => 'date_event', // Utiliser l'ancien nom car c'est là que les données sont stockées
     'order' => 'ASC',
 ];
 

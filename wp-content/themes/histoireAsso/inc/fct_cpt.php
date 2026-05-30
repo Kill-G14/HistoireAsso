@@ -25,7 +25,7 @@ function ha_register_custom_post_types() {
         'public' => true,
         'has_archive' => true,
         'rewrite' => ['slug' => 'evenements'],
-        'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],
+        'supports' => ['title', 'editor', 'thumbnail'], // excerpt retiré : auto-généré
         'menu_icon' => 'dashicons-calendar-alt',
         'show_in_rest' => true,
     ]);
@@ -47,7 +47,7 @@ function ha_register_custom_post_types() {
         'public' => true,
         'has_archive' => true,
         'rewrite' => ['slug' => 'actualites'],
-        'supports' => ['title', 'editor', 'thumbnail', 'excerpt', 'author', 'comments'],
+        'supports' => ['title', 'editor', 'thumbnail', 'author', 'comments'], // excerpt retiré : auto-généré
         'menu_icon' => 'dashicons-megaphone',
         'show_in_rest' => true,
     ]);

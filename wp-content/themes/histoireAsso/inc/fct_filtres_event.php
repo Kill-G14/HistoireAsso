@@ -39,7 +39,7 @@ function ha_ajax_filtrer_events() {
         'post_type' => 'event',
         'posts_per_page' => -1,
         'orderby' => 'meta_value',
-        'meta_key' => 'date_event',
+        'meta_key' => 'date_event', // Utiliser l'ancien nom car c'est là que les données sont stockées
         'order' => 'ASC',
     ];
 
@@ -60,6 +60,7 @@ function ha_ajax_filtrer_events() {
     // Générer le HTML
     ob_start();
 
+    echo '<div class="events-grid">';
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
@@ -69,6 +70,7 @@ function ha_ajax_filtrer_events() {
     } else {
         echo '<p class="no-results">Aucun événement trouvé pour cette période.</p>';
     }
+    echo '</div>';
 
     $html = ob_get_clean();
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Rejoindre
+ * Template Name: Recrutement
  * Page d'inscription à l'association
  */
 
@@ -14,12 +14,12 @@ get_header();
             <?php if (has_post_thumbnail()): ?>
                 <?= get_the_post_thumbnail(get_the_ID(), 'full'); ?>
             <?php else: ?>
-                <img src="<?= get_template_directory_uri(); ?>/assets/images/placeholder-hero.jpg" alt="Rejoindre l'association">
+                <img src="<?= get_template_directory_uri(); ?>/assets/images/placeholder-hero.jpg" alt="Recrutement">
             <?php endif; ?>
         </div>
         
         <div class="rejoindre-hero-content">
-            <h1>Rejoindre l'Association</h1>
+            <h1>Recrutement</h1>
             <p>
                 Passionné(e) d'histoire et de reconstitution historique ? 
                 Rejoignez notre communauté et participez à nos événements et découvertes archéologiques.

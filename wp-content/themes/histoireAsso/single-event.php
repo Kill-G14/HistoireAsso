@@ -8,7 +8,7 @@ get_header();
 
 while (have_posts()): the_post();
 
-$date_event = get_field('date_event');
+$date_event = get_field('date_event'); // Date + Heure
 $lieu = get_field('lieu');
 $galerie = get_field('galerie');
 $eras = get_the_terms(get_the_ID(), 'era');
@@ -29,7 +29,24 @@ $eras = get_the_terms(get_the_ID(), 'era');
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/>
                         </svg>
-                        <strong><?= esc_html(date_i18n('d F Y', strtotime($date_event))); ?></strong>
+                        <strong>
+                            <?php
+                            // Essayer format avec heure
+                            $debut = DateTime::createFromFormat('d/m/Y H:i', $date_event);
+                            if ($debut === false) {
+                                // Essayer format sans heure (anciennes données)
+                                $debut = DateTime::createFromFormat('d/m/Y', $date_event);
+                            }
+                            
+                            if ($debut !== false) {
+                                echo esc_html($debut->format('d F Y'));
+                                // Afficher l'heure si elle existe
+                                if (strpos($date_event, ':') !== false) {
+                                    echo ' à ' . esc_html($debut->format('H:i'));
+                                }
+                            }
+                            ?>
+                        </strong>
                     </div>
                 <?php endif; ?>
                 
