@@ -4,9 +4,9 @@
  * Design System: Digital Archivist
  */
 
-$background = $args['background_image'];
+$background = $args['background_image'] ?? null;
 $surtitre = $args['surtitre'] ?? '';
-$titre = $args['titre'];
+$titre = $args['titre'] ?? '';
 $btn_primary = $args['bouton_primaire'] ?? null;
 $btn_secondary = $args['bouton_secondaire'] ?? null;
 ?>
