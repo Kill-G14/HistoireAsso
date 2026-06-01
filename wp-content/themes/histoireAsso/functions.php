@@ -25,4 +25,5 @@ require_once HA_THEME_DIR . '/inc/fct_taxonomy.php';     // Taxonomies
 require_once HA_THEME_DIR . '/inc/fct_carousel.php';     // Swiper.js
 require_once HA_THEME_DIR . '/inc/fct_filtres_event.php'; // Filtres AJAX événements
 require_once HA_THEME_DIR . '/inc/fct_forms.php';        // Formulaires Contact & Rejoindre
+require_once HA_THEME_DIR . '/inc/fct_lead_admin.php';   // Administration des leads
 require_once HA_THEME_DIR . '/inc/fct_debug.php';        // Outils debug

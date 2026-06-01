@@ -51,6 +51,46 @@ function ha_register_custom_post_types() {
         'menu_icon' => 'dashicons-megaphone',
         'show_in_rest' => true,
     ]);
+
+    // CPT Lead (Candidatures / Leads)
+    register_post_type('lead', [
+        'labels' => [
+            'name' => 'Candidatures',
+            'singular_name' => 'Candidature',
+            'edit_item' => 'Voir la candidature',
+            'view_item' => 'Voir la candidature',
+            'search_items' => 'Rechercher des candidatures',
+            'not_found' => 'Aucune candidature trouvée',
+            'all_items' => 'Toutes les candidatures',
+        ],
+        'public' => false,
+        'show_ui' => true,
+        'capabilities' => [
+            'create_posts' => false, // Retire la capacité d'ajouter
+        ],
+        'map_meta_cap' => true,
+        'capability_type' => 'post',
+        'supports' => ['title'],
+        'menu_icon' => 'dashicons-groups',
+        'show_in_rest' => false,
+        'has_archive' => false,
+    ]);
+}
+
+// Enregistrement des métadonnées pour les leads
+add_action('init', 'ha_register_lead_meta');
+
+function ha_register_lead_meta() {
+    $meta_fields = ['lead_prenom', 'lead_nom', 'lead_adresse', 'lead_telephone', 'lead_email', 'lead_motivation'];
+    
+    foreach ($meta_fields as $meta_field) {
+        register_post_meta('lead', $meta_field, [
+            'type' => 'string',
+            'single' => true,
+            'show_in_rest' => false,
+            'sanitize_callback' => 'sanitize_text_field',
+        ]);
+    }
 }
 
 // ACF Options Page

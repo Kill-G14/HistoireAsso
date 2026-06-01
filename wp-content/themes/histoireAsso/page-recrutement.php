@@ -54,9 +54,14 @@ get_header();
                 </div>
                 
                 <div class="form-field">
-                    <label for="join-telephone" class="form-label">Téléphone</label>
-                    <input type="tel" id="join-telephone" name="telephone" class="form-input">
+                    <label for="join-telephone" class="form-label">Téléphone *</label>
+                    <input type="tel" id="join-telephone" name="telephone" class="form-input" required>
                 </div>
+            </div>
+            
+            <div class="form-field">
+                <label for="join-adresse" class="form-label">Adresse *</label>
+                <textarea id="join-adresse" name="adresse" class="form-textarea" rows="3" required></textarea>
             </div>
             
             <div class="form-field">
@@ -64,7 +69,7 @@ get_header();
                 <textarea id="join-motivation" name="motivation" class="form-textarea" required></textarea>
             </div>
             
-            <input type="hidden" name="nonce" value="<?= wp_create_nonce('join_form_nonce'); ?>">
+            <input type="hidden" name="nonce" value="<?= wp_create_nonce('lead_form_nonce'); ?>">
             
             <?php get_template_part('template-parts/button-a', null, [
                 'text' => 'Envoyer ma candidature',

@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Récupérer les données du formulaire
     const adhesionFormData = new FormData(adhesionForm);
-    adhesionFormData.append("action", "submit_join_form");
+    adhesionFormData.append("action", "submit_lead_form");
 
     // Envoyer via AJAX
     fetch(ajax_params.ajaxurl, {
