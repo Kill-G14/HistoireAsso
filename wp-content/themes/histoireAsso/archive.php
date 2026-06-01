@@ -37,24 +37,3 @@ get_header();
 </main>
 
 <?php get_footer(); ?>
-
-<style>
-.archive-default {
-    background-color: var(--background);
-}
-
-.archive-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: var(--spacing-8);
-    margin-bottom: var(--spacing-10);
-}
-
-.no-results {
-    grid-column: 1 / -1;
-    text-align: center;
-    color: var(--on-surface-variant);
-    font-size: var(--body-lg);
-    padding: var(--spacing-12) 0;
-}
-</style>

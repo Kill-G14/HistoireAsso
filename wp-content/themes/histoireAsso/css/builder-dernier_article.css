@@ -1,0 +1,10 @@
+/* Builder Component: Derniers Articles (News) */
+.builder-dernier-article {
+    background-color: var(--background);
+}
+
+.builder-dernier-article .section-title {
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: var(--spacing-12);
+}

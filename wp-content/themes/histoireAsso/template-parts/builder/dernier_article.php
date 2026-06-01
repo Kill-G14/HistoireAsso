@@ -34,15 +34,3 @@ $news_query = new WP_Query($query_args);
         <?php wp_reset_postdata(); ?>
     </div>
 </section>
-
-<style>
-.builder-dernier-article {
-    background-color: var(--background);
-}
-
-.builder-dernier-article .section-title {
-    color: var(--primary);
-    text-align: center;
-    margin-bottom: var(--spacing-12);
-}
-</style>

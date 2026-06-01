@@ -1,0 +1,32 @@
+/* Builder Component: Text Simple Double Colonne */
+.builder-text-double {
+    background-color: var(--background);
+}
+
+.text-double-title {
+    color: var(--primary);
+    margin-bottom: var(--spacing-10);
+    text-align: center;
+}
+
+.text-double-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-12);
+}
+
+.text-double-col {
+    color: var(--on-surface);
+    line-height: var(--lh-relaxed);
+}
+
+.text-double-col p {
+    margin-bottom: var(--spacing-6);
+}
+
+@media (max-width: 1024px) {
+    .text-double-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-8);
+    }
+}

@@ -37,9 +37,3 @@ while (have_posts()): the_post();
 <?php endwhile; ?>
 
 <?php get_footer(); ?>
-
-<style>
-.front-page {
-    background-color: var(--background);
-}
-</style>

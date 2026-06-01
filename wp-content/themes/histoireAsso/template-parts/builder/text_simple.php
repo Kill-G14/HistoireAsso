@@ -21,33 +21,3 @@ $contenu = $args['contenu'] ?? '';
         <?php endif; ?>
     </div>
 </section>
-
-<style>
-.builder-text-simple {
-    background-color: var(--background);
-}
-
-.text-simple-title {
-    color: var(--primary);
-    margin-bottom: var(--spacing-8);
-    text-align: center;
-}
-
-.text-simple-content {
-    color: var(--on-surface);
-    max-width: 900px;
-    margin: 0 auto;
-    line-height: var(--lh-relaxed);
-}
-
-.text-simple-content p {
-    margin-bottom: var(--spacing-6);
-}
-
-.text-simple-content h3 {
-    font-family: var(--font-serif);
-    font-size: var(--headline-sm);
-    color: var(--primary);
-    margin: var(--spacing-8) 0 var(--spacing-4);
-}
-</style>

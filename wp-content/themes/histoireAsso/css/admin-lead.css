@@ -1,0 +1,22 @@
+/* Admin Lead - Colonnes personnalisées */
+.lead-details { 
+    font-size: 14px; 
+    line-height: 1.8; 
+}
+
+.lead-details strong { 
+    display: inline-block; 
+    width: 120px; 
+    color: #1e1e1e; 
+}
+
+.lead-details p { 
+    margin: 10px 0; 
+}
+
+.lead-details .motivation { 
+    background: #f0f0f1; 
+    padding: 15px; 
+    border-radius: 4px; 
+    margin-top: 15px; 
+}

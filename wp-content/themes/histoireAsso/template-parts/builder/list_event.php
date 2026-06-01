@@ -47,15 +47,3 @@ $events_query = new WP_Query($query_args);
         <?php wp_reset_postdata(); ?>
     </div>
 </section>
-
-<style>
-.builder-list-event {
-    background-color: var(--surface-container-low);
-}
-
-.builder-list-event .section-title {
-    color: var(--primary);
-    text-align: center;
-    margin-bottom: var(--spacing-12);
-}
-</style>

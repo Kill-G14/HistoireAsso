@@ -31,25 +31,3 @@ $background_color = $args['background_color'] ?? '';
         </div>
     </div>
 </section>
-
-<style>
-.builder-cta {
-    background-color: var(--surface-container);
-}
-
-.cta-content {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.cta-title {
-    color: var(--primary);
-    margin-bottom: var(--spacing-6);
-}
-
-.cta-subtitle {
-    color: var(--on-surface);
-    margin-bottom: var(--spacing-8);
-}
-</style>

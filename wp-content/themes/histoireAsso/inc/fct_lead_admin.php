@@ -4,6 +4,24 @@
  * Colonnes personnalisées, meta boxes, export CSV
  */
 
+// Enqueue CSS pour l'admin des leads
+add_action('admin_enqueue_scripts', 'ha_enqueue_admin_lead_styles');
+
+function ha_enqueue_admin_lead_styles($hook) {
+    // Charger seulement sur les pages d'édition et de liste des leads
+    if (('post.php' === $hook || 'edit.php' === $hook) && isset($_GET['post_type']) && 'lead' === $_GET['post_type']) {
+        wp_enqueue_style('ha-admin-lead', get_template_directory_uri() . '/css/admin-lead.css', [], '1.0.0');
+    }
+    
+    // Charger aussi sur la page d'édition d'un lead spécifique
+    if ('post.php' === $hook) {
+        global $post;
+        if (isset($post) && 'lead' === $post->post_type) {
+            wp_enqueue_style('ha-admin-lead', get_template_directory_uri() . '/css/admin-lead.css', [], '1.0.0');
+        }
+    }
+}
+
 // Personnaliser les actions de ligne pour les leads
 add_filter('post_row_actions', 'ha_lead_row_actions', 10, 2);
 
@@ -144,13 +162,6 @@ function ha_lead_details_callback($post) {
     
     // Afficher les informations
     ?>
-    <style>
-        .lead-details { font-size: 14px; line-height: 1.8; }
-        .lead-details strong { display: inline-block; width: 120px; color: #1e1e1e; }
-        .lead-details p { margin: 10px 0; }
-        .lead-details .motivation { background: #f0f0f1; padding: 15px; border-radius: 4px; margin-top: 15px; }
-    </style>
-    
     <div class="lead-details">
         <p><strong>Prénom :</strong> <?= esc_html($prenom); ?></p>
         <p><strong>Nom :</strong> <?= esc_html($nom); ?></p>
