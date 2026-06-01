@@ -29,7 +29,7 @@ function ha_submit_contact_form() {
     }
 
     // Préparer l'email pour l'admin
-    $recipient_email = get_field('email_contact', 'option') ?: get_option('admin_email');
+    $recipient_email = get_option('options_email_contact') ?: get_field('email_contact', 'option') ?: get_option('admin_email');
     $subject = 'Nouveau message de contact - Histoire Association';
     $body = "Une nouvelle demande de contact a été reçue :\n\n";
     $body .= "Nom: {$name}\n";
@@ -94,7 +94,7 @@ function ha_submit_join_form() {
     }
 
     // Préparer l'email pour l'admin
-    $recipient_email = get_field('email_contact', 'option') ?: get_option('admin_email');
+    $recipient_email = get_option('options_email_rejoindre') ?: get_field('email_rejoindre', 'option') ?: get_option('admin_email');
     $subject = 'Nouvelle candidature - Histoire Association';
     $body = "Une nouvelle demande d'adhésion a été reçue :\n\n";
     $body .= "Informations du candidat :\n";
@@ -208,7 +208,7 @@ function ha_submit_lead_form() {
     wp_mail($email, $prospect_subject, $prospect_body, $prospect_headers);
 
     // Email de notification à l'administrateur
-    $admin_email = get_field('email_contact', 'option') ?: get_option('admin_email');
+    $admin_email = get_option('options_email_rejoindre') ?: get_field('email_rejoindre', 'option') ?: get_option('admin_email');
     $admin_subject = 'Nouvelle candidature - ' . $prenom . ' ' . $nom;
     $admin_body = "Une nouvelle candidature a été soumise :\n\n";
     $admin_body .= "Informations du candidat :\n";
