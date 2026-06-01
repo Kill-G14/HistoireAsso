@@ -64,13 +64,19 @@ function ha_enqueue_scripts() {
     // JavaScript Carousel Intervenants
     wp_enqueue_script('ha-carousel-intervenants', get_template_directory_uri() . '/JS/carousel-intervenants.js', [], '1.0.0', true);
     
-    // JavaScript Formulaire de Contact (avec variables explicites)
-    wp_enqueue_script('ha-formulaire-contact', get_template_directory_uri() . '/JS/formulaire-contact.js', [], '1.0.0', true);
+    // JavaScript Formulaire de Contact (chargement conditionnel)
+    if (is_page('contact')) {
+        wp_enqueue_script('ha-formulaire-contact', get_template_directory_uri() . '/JS/formulaire-contact.js', [], '1.0.0', true);
+        wp_localize_script('ha-formulaire-contact', 'ajax_params', [
+            'ajaxurl' => admin_url('admin-ajax.php')
+        ]);
+    }
     
-    // JavaScript Formulaire d'Adhésion (avec variables explicites)
-    wp_enqueue_script('ha-formulaire-adhesion', get_template_directory_uri() . '/JS/formulaire-adhesion.js', [], '1.0.0', true);
-    
-    // Localiser ajaxurl pour le frontend
-    wp_localize_script('ha-formulaire-contact', 'ajaxurl', admin_url('admin-ajax.php'));
-    wp_localize_script('ha-formulaire-adhesion', 'ajaxurl', admin_url('admin-ajax.php'));
+    // JavaScript Formulaire d'Adhésion (chargement conditionnel)
+    if (is_page('recrutement')) {
+        wp_enqueue_script('ha-formulaire-adhesion', get_template_directory_uri() . '/JS/formulaire-adhesion.js', [], '1.0.0', true);
+        wp_localize_script('ha-formulaire-adhesion', 'ajax_params', [
+            'ajaxurl' => admin_url('admin-ajax.php')
+        ]);
+    }
 }

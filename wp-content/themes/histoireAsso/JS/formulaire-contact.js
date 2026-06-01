@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
     contactFormData.append("action", "submit_contact_form");
 
     // Envoyer via AJAX
-    fetch(ajaxurl, {
+    fetch(ajax_params.ajaxurl, {
       method: "POST",
       body: contactFormData,
     })

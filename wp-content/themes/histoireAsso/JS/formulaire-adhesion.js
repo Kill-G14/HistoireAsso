@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
     adhesionFormData.append("action", "submit_join_form");
 
     // Envoyer via AJAX
-    fetch(ajaxurl, {
+    fetch(ajax_params.ajaxurl, {
       method: "POST",
       body: adhesionFormData,
     })
