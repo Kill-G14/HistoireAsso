@@ -15,6 +15,26 @@
     min-height: 500px;
 }
 
+/* Si pas d'image, le contenu prend toute la largeur et se centre */
+.rejoindre-hero:has(.full-width) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
+.rejoindre-hero-content.full-width {
+    max-width: 800px;
+    text-align: center;
+    align-items: center;
+}
+
+.rejoindre-hero-content.full-width p {
+    text-align: center;
+}
+
+.rejoindre-hero-content.full-width .btn {
+    margin: 0 auto;
+}
+
 .rejoindre-hero-image {
     position: relative;
     border-radius: var(--radius-lg);
@@ -69,6 +89,26 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-6);
+}
+
+/* Form response messages */
+.form-response {
+    padding: var(--spacing-5);
+    border-radius: var(--radius-sm);
+    margin-top: var(--spacing-6);
+    display: none;
+}
+
+.form-response.success {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #4CAF50;
+    border: 1px solid rgba(76, 175, 80, 0.4);
+}
+
+.form-response.error {
+    background-color: rgba(146, 7, 3, 0.2);
+    color: var(--secondary);
+    border: 1px solid var(--secondary-container);
 }
 
 /* ========================================

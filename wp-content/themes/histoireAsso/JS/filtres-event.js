@@ -32,13 +32,13 @@ jQuery(document).ready(function ($) {
         nonce: ajaxFiltresEvent.nonce,
         era: era,
       },
-      success: function (response) {
-        if (response.success) {
+      success: function (ajaxResponse) {
+        if (ajaxResponse.success) {
           // Remplacer le HTML
-          $resultsContainer.html(response.data.html);
+          $resultsContainer.html(ajaxResponse.data.html);
 
           // Mettre à jour le compteur
-          updateResultsCount(response.data.count, era);
+          updateResultsCount(ajaxResponse.data.count, era);
 
           // Animation d'entrée
           $resultsContainer.find(".card").css("opacity", "0");
@@ -49,13 +49,13 @@ jQuery(document).ready(function ($) {
             });
           }, 100);
         } else {
-          console.error("Erreur filtre:", response.data);
+          console.error("Erreur filtre:", ajaxResponse.data);
         }
       },
-      error: function (xhr, status, error) {
-        console.error("Erreur AJAX:", error);
+      error: function (xhr, status, ajaxError) {
+        console.error("Erreur AJAX filtres event:", ajaxError);
         $resultsContainer.html(
-          '<p class="no-results">Une erreur est survenue. Veuillez réessayer.</p>'
+          '<p class="no-results">Une erreur est survenue. Veuillez réessayer.</p>',
         );
       },
       complete: function () {
@@ -75,7 +75,7 @@ jQuery(document).ready(function ($) {
     $resultsCount.html(
       `<strong>${count}</strong> événement${count > 1 ? "s" : ""} trouvé${
         count > 1 ? "s" : ""
-      } pour <em>${eraLabel}</em>`
+      } pour <em>${eraLabel}</em>`,
     );
   }
 });

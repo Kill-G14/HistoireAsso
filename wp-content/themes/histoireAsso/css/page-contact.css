@@ -1,5 +1,5 @@
 /**
- * Page Contact — Layout split formulaire/carte
+ * Page Contact — Layout formulaire et informations
  */
 
 .page-contact {
@@ -33,7 +33,7 @@
 }
 
 .contact-info {
-    margin-top: var(--spacing-8);
+    margin-top: var(--spacing-6);
 }
 
 .contact-info-item {
@@ -48,18 +48,6 @@
     color: var(--primary-container);
     width: 24px;
     height: 24px;
-}
-
-/* Map placeholder */
-.map-container {
-    width: 100%;
-    height: 400px;
-    background-color: var(--surface-container-lowest);
-    border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--on-surface-variant);
 }
 
 /* Form response messages */
@@ -90,9 +78,5 @@
     .contact-split {
         grid-template-columns: 1fr;
         gap: var(--spacing-8);
-    }
-    
-    .map-container {
-        height: 300px;
     }
 }

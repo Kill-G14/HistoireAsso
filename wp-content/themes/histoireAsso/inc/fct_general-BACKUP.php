@@ -1,7 +1,10 @@
 <?php
 /**
- * Fonctions Générales
+ * Fonctions Générales — VERSION DE SECOURS
  * Enqueue scripts, styles, support thème, menus
+ * 
+ * Cette version charge les formulaires sur TOUTES les pages
+ * pour garantir le fonctionnement (comme avant la modification)
  */
 
 // Support du thème
@@ -46,10 +49,10 @@ function ha_enqueue_scripts() {
     // CSS Cards
     wp_enqueue_style('ha-card', get_template_directory_uri() . '/css/card.css', [], '1.0.0');
     
-    // CSS Page Contact
+    // CSS Page Contact (chargé sur toutes les pages pour garantir le fonctionnement)
     wp_enqueue_style('ha-page-contact', get_template_directory_uri() . '/css/page-contact.css', [], '1.0.0');
     
-    // CSS Page Rejoindre
+    // CSS Page Rejoindre (chargé sur toutes les pages pour garantir le fonctionnement)
     wp_enqueue_style('ha-page-rejoindre', get_template_directory_uri() . '/css/page-rejoindre.css', [], '1.0.0');
     
     // Google Fonts (Noto Serif + Work Sans)
@@ -64,10 +67,10 @@ function ha_enqueue_scripts() {
     // JavaScript Carousel Intervenants
     wp_enqueue_script('ha-carousel-intervenants', get_template_directory_uri() . '/JS/carousel-intervenants.js', [], '1.0.0', true);
     
-    // JavaScript Formulaire de Contact (avec variables explicites)
+    // JavaScript Formulaire de Contact (chargé sur toutes les pages)
     wp_enqueue_script('ha-formulaire-contact', get_template_directory_uri() . '/JS/formulaire-contact.js', [], '1.0.0', true);
     
-    // JavaScript Formulaire d'Adhésion (avec variables explicites)
+    // JavaScript Formulaire d'Adhésion (chargé sur toutes les pages)
     wp_enqueue_script('ha-formulaire-adhesion', get_template_directory_uri() . '/JS/formulaire-adhesion.js', [], '1.0.0', true);
     
     // Localiser ajaxurl pour le frontend

@@ -29,15 +29,15 @@ function ha_submit_contact_form() {
     }
 
     // Préparer l'email
-    $to = get_field('email_contact', 'option') ?: get_option('admin_email');
+    $recipient_email = get_field('email_contact', 'option') ?: get_option('admin_email');
     $subject = 'Nouveau message de contact - Histoire Association';
     $body = "Nom: {$name}\nEmail: {$email}\n\nMessage:\n{$message}";
     $headers = ['Content-Type: text/plain; charset=UTF-8', "Reply-To: {$email}"];
 
     // Envoyer l'email
-    $sent = wp_mail($to, $subject, $body, $headers);
+    $email_sent_successfully = wp_mail($recipient_email, $subject, $body, $headers);
 
-    if ($sent) {
+    if ($email_sent_successfully) {
         wp_send_json_success('Votre message a été envoyé avec succès.');
     } else {
         wp_send_json_error('Une erreur est survenue lors de l\'envoi du message.');
@@ -71,7 +71,7 @@ function ha_submit_join_form() {
     }
 
     // Préparer l'email
-    $to = get_field('email_contact', 'option') ?: get_option('admin_email');
+    $recipient_email = get_field('email_contact', 'option') ?: get_option('admin_email');
     $subject = 'Nouvelle candidature - Histoire Association';
     $body = "Nouvelle demande d'adhésion:\n\n";
     $body .= "Prénom: {$prenom}\n";
@@ -82,9 +82,9 @@ function ha_submit_join_form() {
     $headers = ['Content-Type: text/plain; charset=UTF-8', "Reply-To: {$email}"];
 
     // Envoyer l'email
-    $sent = wp_mail($to, $subject, $body, $headers);
+    $email_sent_successfully = wp_mail($recipient_email, $subject, $body, $headers);
 
-    if ($sent) {
+    if ($email_sent_successfully) {
         wp_send_json_success('Votre candidature a été envoyée avec succès. Nous vous contacterons prochainement.');
     } else {
         wp_send_json_error('Une erreur est survenue lors de l\'envoi de votre candidature.');

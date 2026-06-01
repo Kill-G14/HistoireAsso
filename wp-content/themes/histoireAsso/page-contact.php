@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Contact
- * Page de contact avec formulaire et carte
+ * Page de contact avec formulaire
  */
 
 get_header();
@@ -67,12 +67,6 @@ $telephone = get_field('telephone', 'option');
             <!-- Carte et infos -->
             <div class="contact-map-section">
                 <h2>Où nous trouver</h2>
-                
-                <!-- Carte (placeholder) -->
-                <div class="map-container">
-                    <p>Carte Google Maps — Tournai, Belgique</p>
-                    <!-- TODO: Intégrer iframe Google Maps -->
-                </div>
                 
                 <!-- Informations de contact -->
                 <div class="contact-info">

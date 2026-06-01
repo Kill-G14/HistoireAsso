@@ -10,15 +10,13 @@ get_header();
 <main class="page-rejoindre">
     <!-- Hero asymétrique -->
     <section class="rejoindre-hero container1400px">
-        <div class="rejoindre-hero-image">
-            <?php if (has_post_thumbnail()): ?>
+        <?php if (has_post_thumbnail()): ?>
+            <div class="rejoindre-hero-image">
                 <?= get_the_post_thumbnail(get_the_ID(), 'full'); ?>
-            <?php else: ?>
-                <img src="<?= get_template_directory_uri(); ?>/assets/images/placeholder-hero.jpg" alt="Recrutement">
-            <?php endif; ?>
-        </div>
+            </div>
+        <?php endif; ?>
         
-        <div class="rejoindre-hero-content">
+        <div class="rejoindre-hero-content <?php echo !has_post_thumbnail() ? 'full-width' : ''; ?>">
             <h1>Recrutement</h1>
             <p>
                 Passionné(e) d'histoire et de reconstitution historique ? 
@@ -80,47 +78,3 @@ get_header();
 </main>
 
 <?php get_footer(); ?>
-
-<script>
-jQuery(document).ready(function($) {
-    $('#join-form').on('submit', function(e) {
-        e.preventDefault();
-        
-        const $form = $(this);
-        const $response = $('.form-response');
-        const $submitBtn = $form.find('.submit-btn');
-        
-        // Désactiver le bouton
-        $submitBtn.css('opacity', '0.6').css('pointer-events', 'none');
-        
-        // Requête AJAX
-        $.ajax({
-            url: '<?= admin_url('admin-ajax.php'); ?>',
-            type: 'POST',
-            data: {
-                action: 'submit_join_form',
-                prenom: $('#join-prenom').val(),
-                nom: $('#join-nom').val(),
-                email: $('#join-email').val(),
-                telephone: $('#join-telephone').val(),
-                motivation: $('#join-motivation').val(),
-                nonce: $('input[name="nonce"]').val()
-            },
-            success: function(response) {
-                if (response.success) {
-                    $response.removeClass('error').addClass('success').text(response.data).fadeIn();
-                    $form[0].reset();
-                } else {
-                    $response.removeClass('success').addClass('error').text(response.data).fadeIn();
-                }
-            },
-            error: function() {
-                $response.removeClass('success').addClass('error').text('Une erreur est survenue.').fadeIn();
-            },
-            complete: function() {
-                $submitBtn.css('opacity', '1').css('pointer-events', 'auto');
-            }
-        });
-    });
-});
-</script>
