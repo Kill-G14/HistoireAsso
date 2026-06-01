@@ -28,17 +28,40 @@ function ha_submit_contact_form() {
         return;
     }
 
-    // Préparer l'email
+    // Préparer l'email pour l'admin
     $recipient_email = get_field('email_contact', 'option') ?: get_option('admin_email');
     $subject = 'Nouveau message de contact - Histoire Association';
-    $body = "Nom: {$name}\nEmail: {$email}\n\nMessage:\n{$message}";
+    $body = "Une nouvelle demande de contact a été reçue :\n\n";
+    $body .= "Nom: {$name}\n";
+    $body .= "Email: {$email}\n\n";
+    $body .= "Message:\n{$message}\n\n";
+    $body .= "Date et heure : " . current_time('d/m/Y') . " à " . current_time('H:i');
     $headers = ['Content-Type: text/plain; charset=UTF-8', "Reply-To: {$email}"];
 
-    // Envoyer l'email
+    // Envoyer l'email à l'admin
     $email_sent_successfully = wp_mail($recipient_email, $subject, $body, $headers);
 
+    // Email de confirmation au prospect
+    $prospect_subject = 'Confirmation de votre message - Histoire Association';
+    $prospect_body = "Bonjour {$name},\n\n";
+    $prospect_body .= "Merci de nous avoir contactés ! Nous avons bien reçu votre message.\n\n";
+    $prospect_body .= "Récapitulatif de votre message :\n";
+    $prospect_body .= "- Nom : {$name}\n";
+    $prospect_body .= "- Email : {$email}\n\n";
+    $prospect_body .= "Message :\n{$message}\n\n";
+    $prospect_body .= "Nous vous répondrons dans les plus brefs délais.\n\n";
+    $prospect_body .= "Cordialement,\n";
+    $prospect_body .= "L'équipe Histoire Association";
+    
+    $prospect_headers = [
+        'Content-Type: text/plain; charset=UTF-8',
+        'From: Histoire Association <' . get_option('admin_email') . '>'
+    ];
+
+    wp_mail($email, $prospect_subject, $prospect_body, $prospect_headers);
+
     if ($email_sent_successfully) {
-        wp_send_json_success('Votre message a été envoyé avec succès.');
+        wp_send_json_success('Votre message a été envoyé avec succès. Un email de confirmation vous a été envoyé.');
     } else {
         wp_send_json_error('Une erreur est survenue lors de l\'envoi du message.');
     }
@@ -70,22 +93,45 @@ function ha_submit_join_form() {
         return;
     }
 
-    // Préparer l'email
+    // Préparer l'email pour l'admin
     $recipient_email = get_field('email_contact', 'option') ?: get_option('admin_email');
     $subject = 'Nouvelle candidature - Histoire Association';
-    $body = "Nouvelle demande d'adhésion:\n\n";
-    $body .= "Prénom: {$prenom}\n";
-    $body .= "Nom: {$nom}\n";
-    $body .= "Email: {$email}\n";
-    $body .= "Téléphone: {$telephone}\n\n";
-    $body .= "Motivation:\n{$motivation}";
+    $body = "Une nouvelle demande d'adhésion a été reçue :\n\n";
+    $body .= "Informations du candidat :\n";
+    $body .= "- Prénom : {$prenom}\n";
+    $body .= "- Nom : {$nom}\n";
+    $body .= "- Email : {$email}\n";
+    $body .= "- Téléphone : {$telephone}\n\n";
+    $body .= "Motivation :\n{$motivation}\n\n";
+    $body .= "Date et heure : " . current_time('d/m/Y') . " à " . current_time('H:i');
     $headers = ['Content-Type: text/plain; charset=UTF-8', "Reply-To: {$email}"];
 
-    // Envoyer l'email
+    // Envoyer l'email à l'admin
     $email_sent_successfully = wp_mail($recipient_email, $subject, $body, $headers);
 
+    // Email de confirmation au prospect
+    $prospect_subject = 'Confirmation de votre candidature - Histoire Association';
+    $prospect_body = "Bonjour {$prenom},\n\n";
+    $prospect_body .= "Merci pour votre intérêt ! Nous avons bien reçu votre candidature.\n\n";
+    $prospect_body .= "Récapitulatif de vos informations :\n";
+    $prospect_body .= "- Nom : {$nom}\n";
+    $prospect_body .= "- Prénom : {$prenom}\n";
+    $prospect_body .= "- Email : {$email}\n";
+    $prospect_body .= "- Téléphone : {$telephone}\n\n";
+    $prospect_body .= "Motivation :\n{$motivation}\n\n";
+    $prospect_body .= "Nous vous recontacterons prochainement.\n\n";
+    $prospect_body .= "Cordialement,\n";
+    $prospect_body .= "L'équipe Histoire Association";
+    
+    $prospect_headers = [
+        'Content-Type: text/plain; charset=UTF-8',
+        'From: Histoire Association <' . get_option('admin_email') . '>'
+    ];
+
+    wp_mail($email, $prospect_subject, $prospect_body, $prospect_headers);
+
     if ($email_sent_successfully) {
-        wp_send_json_success('Votre candidature a été envoyée avec succès. Nous vous contacterons prochainement.');
+        wp_send_json_success('Votre candidature a été envoyée avec succès. Un email de confirmation vous a été envoyé.');
     } else {
         wp_send_json_error('Une erreur est survenue lors de l\'envoi de votre candidature.');
     }

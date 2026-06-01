@@ -479,13 +479,14 @@
                         "required": 1
                     },
                     {
-                        "key": "field_footer_reseau_icon",
-                        "label": "Icône SVG",
-                        "name": "reseau_icon",
-                        "type": "textarea",
+                        "key": "field_footer_reseau_image",
+                        "label": "Image",
+                        "name": "reseau_image",
+                        "type": "image",
                         "required": 0,
-                        "rows": 2,
-                        "placeholder": "<svg>...</svg>"
+                        "return_format": "array",
+                        "preview_size": "thumbnail",
+                        "library": "all"
                     }
                 ]
             },
@@ -538,7 +539,7 @@
                 {
                     "param": "options_page",
                     "operator": "==",
-                    "value": "histoire-asso-settings"
+                    "value": "site-options"
                 }
             ]
         ],

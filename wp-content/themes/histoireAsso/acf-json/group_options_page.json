@@ -1,0 +1,385 @@
+{
+    "key": "group_options_page",
+    "title": "Histoire Asso - Options Globales",
+    "fields": [
+        {
+            "key": "field_tab_cta",
+            "label": "CTA Catalogue",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_cta_catalogue_titre",
+            "label": "Titre CTA Catalogue",
+            "name": "cta_catalogue_titre",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Titre du CTA global dans le footer",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Explorez Notre Catalogue",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_cta_catalogue_texte",
+            "label": "Texte CTA Catalogue",
+            "name": "cta_catalogue_texte",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Description du CTA catalogue",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "rows": 3,
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_cta_catalogue_lien",
+            "label": "Lien CTA Catalogue",
+            "name": "cta_catalogue_lien",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "Lien du bouton CTA",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_tab_footer",
+            "label": "Footer",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_footer_apropos",
+            "label": "À propos",
+            "name": "footer_apropos",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Texte de présentation dans le footer",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "rows": 4,
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_footer_liens_rapides",
+            "label": "Liens Rapides",
+            "name": "footer_liens_rapides",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Liste des liens du footer",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "button_label": "+ Ajouter un lien",
+            "layout": "table",
+            "min": 0,
+            "max": 0,
+            "rows_per_page": 20,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_footer_lien_text",
+                    "label": "Texte",
+                    "name": "lien_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_footer_liens_rapides"
+                },
+                {
+                    "key": "field_footer_lien_url",
+                    "label": "URL",
+                    "name": "lien_url",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_footer_liens_rapides"
+                }
+            ]
+        },
+        {
+            "key": "field_footer_reseaux",
+            "label": "Réseaux Sociaux",
+            "name": "footer_reseaux",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Liens vers les réseaux sociaux",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "button_label": "+ Ajouter un réseau",
+            "layout": "table",
+            "min": 0,
+            "max": 0,
+            "rows_per_page": 20,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_footer_reseau_nom",
+                    "label": "Nom",
+                    "name": "reseau_nom",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placeholder": "Facebook",
+                    "default_value": "",
+                    "maxlength": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_footer_reseaux"
+                },
+                {
+                    "key": "field_footer_reseau_url",
+                    "label": "URL",
+                    "name": "reseau_url",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_footer_reseaux"
+                },
+                {
+                    "key": "field_6a1dc2c6af693",
+                    "label": "Image",
+                    "name": "reseau_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 0,
+                    "preview_size": "medium",
+                    "parent_repeater": "field_footer_reseaux"
+                }
+            ]
+        },
+        {
+            "key": "field_tab_contact",
+            "label": "Contact",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_adresse_association",
+            "label": "Adresse de l'association",
+            "name": "adresse_association",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Adresse complète de l'association",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "Ex: Rue de l'Histoire, 1000 Tournai",
+            "default_value": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_email_contact",
+            "label": "Email de contact",
+            "name": "email_contact",
+            "aria-label": "",
+            "type": "email",
+            "instructions": "Email pour le formulaire de contact",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "contact@histoire-asso.be",
+            "default_value": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_telephone",
+            "label": "Téléphone",
+            "name": "telephone",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Numéro de téléphone",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "+32 X XX XX XX",
+            "default_value": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_email_rejoindre",
+            "label": "Email rejoindre",
+            "name": "email_rejoindre",
+            "aria-label": "",
+            "type": "email",
+            "instructions": "Email pour recevoir les candidatures d'adhésion",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "adhesion@histoire-asso.be",
+            "default_value": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "site-options"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1780335358
+}

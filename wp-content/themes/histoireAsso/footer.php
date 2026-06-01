@@ -4,8 +4,10 @@
  * Inclut le CTA global (ACF Options) et les réseaux sociaux
  */
 
-$cta_catalogue = get_field('cta_catalogue', 'option');
-$reseaux = get_field('reseaux', 'option');
+$cta_titre = get_field('cta_catalogue_titre', 'option');
+$cta_texte = get_field('cta_catalogue_texte', 'option');
+$cta_lien = get_field('cta_catalogue_lien', 'option');
+$reseaux = get_field('footer_reseaux', 'option');
 $adresse = get_field('adresse_association', 'option');
 $email = get_field('email_contact', 'option');
 $telephone = get_field('telephone', 'option');
@@ -13,18 +15,20 @@ $cta_hidden = get_field('cta_hidden'); // Champ pour cacher le CTA sur certaines
 ?>
 
 <!-- CTA Global (si pas caché) -->
-<?php if ($cta_catalogue && empty($cta_hidden)): ?>
+<?php if ($cta_titre && empty($cta_hidden)): ?>
     <section class="footer-cta section-spacing">
         <div class="container1200px">
             <div class="cta-content">
-                <h2 class="cta-title headline-lg"><?= esc_html($cta_catalogue['titre']); ?></h2>
-                <p class="cta-subtitle body-lg"><?= esc_html($cta_catalogue['texte']); ?></p>
+                <h2 class="cta-title headline-lg"><?= esc_html($cta_titre); ?></h2>
+                <?php if (!empty($cta_texte)): ?>
+                    <p class="cta-subtitle body-lg"><?= esc_html($cta_texte); ?></p>
+                <?php endif; ?>
                 
-                <?php if (!empty($cta_catalogue['lien'])): ?>
+                <?php if (!empty($cta_lien)): ?>
                     <?php get_template_part('template-parts/button-a', null, [
-                        'text' => $cta_catalogue['lien']['title'],
-                        'url' => $cta_catalogue['lien']['url'],
-                        'target' => $cta_catalogue['lien']['target'] ?? '_self',
+                        'text' => $cta_lien['title'],
+                        'url' => $cta_lien['url'],
+                        'target' => $cta_lien['target'] ?? '_self',
                     ]); ?>
                 <?php endif; ?>
             </div>
@@ -77,12 +81,17 @@ $cta_hidden = get_field('cta_hidden'); // Champ pour cacher le CTA sur certaines
                     <h3 class="footer-heading">Suivez-nous</h3>
                     <div class="footer-socials">
                         <?php foreach ($reseaux as $reseau): ?>
-                            <a href="<?= esc_url($reseau['url']); ?>" 
-                               target="_blank" 
-                               rel="noopener noreferrer"
-                               class="social-link">
-                                <?= esc_html($reseau['reseau']); ?>
-                            </a>
+                            <?php if (!empty($reseau['reseau_image']) && !empty($reseau['reseau_url'])): ?>
+                                <a href="<?= esc_url($reseau['reseau_url']); ?>" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   class="social-link"
+                                   title="<?= esc_attr($reseau['reseau_nom']); ?>">
+                                    <img src="<?= esc_url($reseau['reseau_image']['url']); ?>" 
+                                         alt="<?= esc_attr($reseau['reseau_nom']); ?>"
+                                         class="social-icon">
+                                </a>
+                            <?php endif; ?>
                         <?php endforeach; ?>
                     </div>
                 </div>
